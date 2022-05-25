@@ -13,7 +13,16 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        class App extends React.
+        class App extends React.Component{
+            render(){
+                return(
+                      <div>
+                          <H1>Hello react</H1>
+                      </div>
+                );   
+            }
+        }
+        ReactDOM.render(<App/>, document.getElementById('root'));
     </script>
 </body>
 </html>

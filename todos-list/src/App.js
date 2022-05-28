@@ -1,31 +1,44 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+import Header from './components/Header';
+import  Footer  from './components/Footer';
+import  Todos  from './components/Todos';
+import { useState } from 'react';
+
 
 import './App.css';
-
+ 
 function App() {
+  
+  const [todos, setTodos] = useState( [
+    {
+      sno: 1,
+      title: 'Go To Market',
+      desc: 'go to the Market to buy Some things for This job done ',
+    },
+    {
+      sno: 2,
+      title: 'Go To Shop',
+      desc: 'go to the Market to buy Some things for This job done ',
+    },
+    {
+      sno: 3,
+      title: 'Go To Interview',
+      desc: 'go to the Market to buy Some things for This job done ',
+    },
+  ]);
+  
+  const ondelete = (todo) => {
+    setTodos(todos.filter((e)=>{
+      return e !== todo;
+    }))
+  };
+
   return (
-              <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">T0D0s List</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
+    
+    <div>
+      <Header title="MyToDoList" />
+      <Todos todos={todos} ondelete={ondelete}/>
+      <Footer />
+    </div>
   );
 }
 

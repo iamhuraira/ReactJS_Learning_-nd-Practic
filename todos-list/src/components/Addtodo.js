@@ -8,10 +8,12 @@ const Addtodo = ({addTodo}) => {
         e.preventDefault();
         if(!title || !desc){
             alert('Title And Description Cannot Be Empty');
+        }else{
+             addTodo(title, desc);
+             settitle('');
+             setdesc('');
         }
-        addTodo(title,desc);
-        settitle('');
-        setdesc('');
+       
     }
   return (
     <div className="container ">

@@ -25,7 +25,7 @@ import Taskcom from "./Taskcom"
 //   }
 // ]
 
-const Task = ({ task, onDelete, ontoggle }) => {
+const Tasks = ({ tasks, onDelete, ontoggle }) => {
   // const [task, setTask] = useState([
 
   //         {
@@ -50,7 +50,7 @@ const Task = ({ task, onDelete, ontoggle }) => {
   // ])
   return (
     <div>
-      {task.map((task) => (
+      {tasks.map((task) => (
         <Taskcom
           key={task.id}
           task={task}
@@ -62,4 +62,4 @@ const Task = ({ task, onDelete, ontoggle }) => {
   );
 };
 
-export default Task
+export default Tasks
